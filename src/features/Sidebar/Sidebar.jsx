@@ -5,7 +5,7 @@ import menus from '../../data/menus.js'
 
 const Sidebar = () => {
   return (
-    <aside className='shadow flex flex-col sticky h-screen w-60 border-r border-amber-300 bg-orange-100 p-4'>
+    <aside className=' flex flex-col fixed h-screen w-60 border-r-2 border-amber-300/30 bg-linear-to-b from-orange-300/50 to-orange-100/50 p-4'>
         <SidebarHeader/>
 <Menu menus={menus}/>
     </aside>

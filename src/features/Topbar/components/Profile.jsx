@@ -4,9 +4,7 @@ import {AVATAR_URL} from './../../../data/constants'
 
 const Profile = () => {
   return (
-    <div
-      tabindex="1"
-      className="flex focus-within:ring-2 focus-within:ring-amber-700/20 cursor-pointer items-center gap-2 select-none p-3 hover:bg-amber-500/5 rounded-md transition-colors duration-150 pb-4"
+    <div className="flex focus-within:ring-2 focus-within:ring-amber-700/20 cursor-pointer items-center gap-2 select-none p-3 hover:bg-amber-500/5 rounded-md transition-colors duration-150 pb-4"
     >
       <div className="size-10">
         <img

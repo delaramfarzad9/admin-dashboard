@@ -6,13 +6,13 @@ import Notification from './components/Notification'
 
 const Topbar = () => {
   return (
-    <div className='h-16 border-b pb-4 border-amber-300 flex flex-row justify-between items-center mx-5 '>
+    <div className='fixed top-0 left-60 right-0 bg-white/70 backdrop-blur-md h-16 border-b-2 py-4  border-amber-300/50 flex flex-row justify-between items-center  px-6 z-20 '>
       {/* left side  */}
-<div>
+<div className='ml-5'>
 <SearchInput/>
 </div>
 {/* right side  */}
-<div className='flex flex-row-reverse items-center justify-center gap-4'>
+<div className='flex flex-row-reverse items-center justify-center gap-4 mr-5'>
 <Proile/>
 <Divider/>
 <Notification/>

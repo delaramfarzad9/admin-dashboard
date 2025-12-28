@@ -8,31 +8,32 @@ id: crypto.randomUUID(),
       {
         id: crypto.randomUUID(),
         href: "/",
-        title: "dashboard",
+        title: "Dashboard",
         icon: HiOutlineHome,
+        
       },
 {
         id: crypto.randomUUID(),
         href: "/products",
-        title: "products",
+        title: "Products",
         icon: HiOutlineShoppingCart,
       },
       {
         id: crypto.randomUUID(),
         href: "/users",
-        title: "users",
+        title: "Users",
         icon: HiOutlineUsers,
       },
       {
         id: crypto.randomUUID(),
         href: "/tickets",
-        title: "tickets",
+        title: "Tickets",
         icon: HiOutlineChatBubbleLeftRight,
       },
       {
         id: crypto.randomUUID(),
         href: "/comments",
-        title: "comments",
+        title: "Comments",
         icon: BiCommentDetail,
       },
 
