@@ -11,9 +11,10 @@ import {productsTableHeadRow,products} from "../../data/products"
 import RemoveProductIcon from "../LastProductTable/components/RemoveProductIcon"
 import ChangeVisibilityIcon from "../LastProductTable/components/ChangeVisibilityIcon"
 import EditProducttIcon from "../LastProductTable/components/EditProducttIcon"
-
+import { useState } from "react";
 
 const LastProductTable = () => {
+  const [lastProducts, setLastProducts] = useState([...products]);
   const Buttons = () => {
     return (
       <Link
@@ -24,7 +25,12 @@ const LastProductTable = () => {
         <MdOpenInNew  className="text-xl"/>
       </Link>
     );
+
   };
+      const removeProduct=(id)=>{
+const newProducts=lastProducts.filter((product)=>product.id!==id)
+setLastProducts(newProducts);
+    }
 
   return (
     <div>
@@ -35,7 +41,7 @@ const LastProductTable = () => {
        </TableHead>
 
        <TableBody>
-        {products.map((product)=>
+        {lastProducts.map((product)=>
         <TableRow key={product.id}>
     <TableCell>{product.id}</TableCell>
     <TableCell>{product.title}</TableCell>
@@ -53,7 +59,8 @@ const LastProductTable = () => {
     <TableCell>$<span>{product.price.toLocaleString()}</span></TableCell>
    <TableCell>
      <div className="flex items-center gap-2">
-                  <RemoveProductIcon />
+                  <RemoveProductIcon  product={product}
+                    handler={removeProduct} />
                   <ChangeVisibilityIcon />
                   <EditProducttIcon />
                 </div>
