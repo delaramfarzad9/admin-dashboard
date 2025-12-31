@@ -12,8 +12,8 @@ const RemoveProductIcon = ({ product, handler }) => {
    title="Remove Product" 
   onSubmit={() => handler(product.id)} 
   Trigger={<Trigger />}>
-      <div className="font-semibold">Are you sure you want to delete product 
-        <span className="px-2 font-bold text-amber-900">{product.title}</span>
+      <div className="font-semibold text-sm">Are you sure you want to delete product 
+        <span className="px-2  text-base font-bold text-amber-900">{product.title}</span>
       </div>
   </Modal>;
 };
