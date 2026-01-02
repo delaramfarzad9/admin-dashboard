@@ -5,7 +5,7 @@ import Search from './Search'
 const TableHeader = ({ header }) => {
     const { Buttons } = header;
   return (
-    <div className="flex items-center justify-between h-20">
+    <div className="flex items-center justify-between mb-4 h-20">
       <h2 className='text-xl font-bold text-chocolate'>
        {header.title}
       </h2>

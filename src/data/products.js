@@ -9,7 +9,7 @@ export const productsTableHeadRow = [
 const STATIC_DESCRIPTION =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae sem vel augue placerat volutpat. Integer at orci non justo fermentum bibendum. Curabitur ac nisl nec lorem gravida aliquet. Suspendisse potenti. Donec at sapien id libero tristique tempus.";
 
-const STATIC_PRODUCT_IMG = "/images/product-img.png";
+const STATIC_PRODUCT_IMG = "src/assets/images/Set-coffee_1.png";
 
 export const products = [
   {

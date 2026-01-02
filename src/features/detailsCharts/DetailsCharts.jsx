@@ -16,7 +16,7 @@ const DetailsCharts = () => {
             Dashboard Overview
         </p>
         {/* chart  */}
-      <div className="max-w-dvw h-96 mt-10 mr-5 ml-5  ">
+      <div className="max-w-dvw h-96 mt-10 mr-5 ml-5 font-semibold">
         <ResponsiveContainer width="100%" height="100%" >
           <BarChart   data={data} width={150} height={40}>
             <Bar  dataKey="value" fill="#985E5C" radius={[30, 30, 0, 0]} />

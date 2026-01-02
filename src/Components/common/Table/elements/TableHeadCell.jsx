@@ -1,5 +1,5 @@
 const TableHeadCell = ({ children }) => {
-  return <div>{children}</div>;
+  return <div className="font-bold  text-chocolate" >{children}</div>;
 };
 
 export default TableHeadCell;
