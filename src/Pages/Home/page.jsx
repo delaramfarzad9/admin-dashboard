@@ -15,7 +15,9 @@ const Home = () => {
       <div className="flex flex-col mx-5">
         <SectionsTitle
           title="Dashboard"
-          Buttons={<CTAButton onClick={() => navigate("/products")} />}
+          className="font-black!"
+          Buttons={<CTAButton onClick={() => navigate("/products")}
+           />}
         />
         <Summaries />
         <div className="">

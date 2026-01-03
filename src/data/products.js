@@ -5,6 +5,16 @@ export const productsTableHeadRow = [
   "Price",
   "",
 ];
+export const productsAllTableHeadRow = [
+  "ID",
+  "Product Title",
+  "Image",
+  "Visibility Status",
+  "Price",
+  "Inventory",
+  "setting",
+];
+
 
 const STATIC_DESCRIPTION =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae sem vel augue placerat volutpat. Integer at orci non justo fermentum bibendum. Curabitur ac nisl nec lorem gravida aliquet. Suspendisse potenti. Donec at sapien id libero tristique tempus.";
