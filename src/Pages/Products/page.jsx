@@ -4,15 +4,44 @@ import { useState } from "react";
 import { products } from "./../../data/products";
 import ProductTableView from "../../features/ProductsView/ProductsTableView";
 import ProductsGridView from "../../features/ProductsView/ProductsGridView";
-
+import AddProductFields from "../../features/ProductsTable/components/AddProductFields";
+import Modal from "../../Components/common/Modal";
+import ModalFooter from "../../Components/common/ModalFooter";
 const Products = () => {
   const [layoutType, setLayoutType] = useState("TABLE"); // or GRID
     const [allProducts, setAllProducts] = useState([...products]);
+    const [newProduct, setNewProduct] = useState({
+    id: crypto.randomUUID(),
+    title: "",
+    description: "",
+    price: "",
+    img: "src/assets/images/Set-coffee_1.png",
+    isPublished: false,
+    entity: "",
+  });
+
 
   const toggleLayout = () => {
     const layout = layoutType === "TABLE" ? "GRID" : "TABLE";
     setLayoutType(layout);
   };
+  const createNewProduct = () => {
+   const productToAdd = { ...newProduct, id: crypto.randomUUID() };
+    setAllProducts([productToAdd, ...allProducts]);
+     setNewProduct({
+      id: crypto.randomUUID(),
+      title: "",
+      description: "",
+      price: "",
+      img: "/images/product-img.png",
+      isPublished: false,
+      entity: "",
+    });
+  };
+
+  const ModalFooterComponent = (props) => (
+    <ModalFooter {...props} btnTask1="Cancel" btnTask2="Add" className="bg-chocolate hover:bg-[#D4AF37]/80" />
+  );
 
   const Buttons = (
     <>
@@ -23,7 +52,17 @@ const Products = () => {
         {layoutType === "TABLE" ? <CiGrid41 /> : <CiViewTable />}
       </button>
 
-      <button className="bg-chocolate  px-3 py-2 rounded-md transition-all duration-200 text-gray-50 font-semibold  hover:scale-105 hover:bg-[#D4AF37]/80">Add product</button>
+     
+  <Modal
+        title="Add New Product"
+        Trigger={
+           <button className="bg-chocolate  px-3 py-2 rounded-md transition-all duration-200 text-gray-50 font-semibold  hover:scale-105 hover:bg-[#D4AF37]/80">Add product</button>
+        }
+         Footer={ModalFooterComponent}
+        onSubmit={createNewProduct}
+      >
+        <AddProductFields newProduct={newProduct} onChange={setNewProduct}/>
+      </Modal>
     </>
   );
 
@@ -36,9 +75,9 @@ const Products = () => {
 
       <section className="my-5 w-full! min-w-full!">
         {layoutType === "TABLE" ? (
-          <ProductTableView products={products} setProducts={setAllProducts}/>
+          <ProductTableView products={allProducts} setProducts={setAllProducts}/>
         ) : (
-          <ProductsGridView products={products} />
+          <ProductsGridView products={allProducts} />
         )}
       </section>
      </div>

@@ -26,7 +26,7 @@ const ProductsTableView = ( { products } ) => {
       <TableBody>
          {currentRows.map((product) => (
           <TableRow key={product.id} className="grid grid-cols-7 gap-4 items-center ">
-            <TableCell >{product.id}</TableCell>
+            <TableCell >{String(product.id).slice(0, 8)}...</TableCell>
             <TableCell >{product.title}</TableCell>
             <TableCell className="-ml-2">
               <img

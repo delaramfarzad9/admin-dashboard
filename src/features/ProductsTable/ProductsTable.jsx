@@ -92,7 +92,7 @@ const ProductsTable = () => {
         <TableBody>
           {currentRows.map((product) => (
             <TableRow key={product.id}>
-              <TableCell>{product.id}</TableCell>
+              <TableCell>{String(product.id).slice(0, 8)}...</TableCell>
               <TableCell>{product.title}</TableCell>
               <TableCell>
                 <p
