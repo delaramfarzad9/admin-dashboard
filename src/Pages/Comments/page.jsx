@@ -1,8 +1,9 @@
 import React from 'react'
+import ComingSoon from "../../Components/common/ComigSoon";
 
 const Comments = () => {
   return (
-    <div>page</div>
+    <ComingSoon title="Comments Management" />
   )
 }
 

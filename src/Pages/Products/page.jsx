@@ -7,8 +7,12 @@ import ProductsGridView from "../../features/ProductsView/ProductsGridView";
 import AddProductFields from "../../features/ProductsTable/components/AddProductFields";
 import Modal from "../../Components/common/Modal";
 import ModalFooter from "../../Components/common/ModalFooter";
+import useLocalStorage from "../../hooks/useLocalStorage";
+
+
 const Products = () => {
-  const [layoutType, setLayoutType] = useState("TABLE"); // or GRID
+
+  const [layoutType, setLayoutType] = useLocalStorage("layout","TABLE"); // or GRID
     const [allProducts, setAllProducts] = useState([...products]);
     const [newProduct, setNewProduct] = useState({
     id: crypto.randomUUID(),
@@ -24,7 +28,10 @@ const Products = () => {
   const toggleLayout = () => {
     const layout = layoutType === "TABLE" ? "GRID" : "TABLE";
     setLayoutType(layout);
+    
+
   };
+
   const createNewProduct = () => {
    const productToAdd = { ...newProduct, id: crypto.randomUUID() };
     setAllProducts([productToAdd, ...allProducts]);
@@ -42,13 +49,17 @@ const Products = () => {
   const ModalFooterComponent = (props) => (
     <ModalFooter {...props} btnTask1="Cancel" btnTask2="Add" className="bg-chocolate hover:bg-[#D4AF37]/80" />
   );
+  const tooltipText = layoutType === "TABLE" ? "Switch to Grid View" : "Switch to Table View";
 
   const Buttons = (
     <>
       <button
         onClick={toggleLayout}
+        title={tooltipText}
         className="text-2xl size-10 flex justify-center items-center bg-gray-100 text-[#818898] *:stroke-1 rounded-md hover:bg-[#e1e4e7] active:scale-90 active:bg-[#ECEFF3]  duration-150 transition-all border-gray-100 border cursor-pointer shadow"
       >
+     
+
         {layoutType === "TABLE" ? <CiGrid41 /> : <CiViewTable />}
       </button>
 
@@ -65,6 +76,7 @@ const Products = () => {
       </Modal>
     </>
   );
+
 
   return (
     <>

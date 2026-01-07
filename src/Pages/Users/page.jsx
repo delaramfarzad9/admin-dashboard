@@ -1,8 +1,9 @@
 import React from 'react'
+import ComingSoon from "../../Components/common/ComigSoon";
 
 const Users = () => {
   return (
-    <div>Users</div>
+   <ComingSoon title="Users Management" />
   )
 }
 

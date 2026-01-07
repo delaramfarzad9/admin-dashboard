@@ -1,8 +1,9 @@
 import React from 'react'
+import ComingSoon from "../../Components/common/ComigSoon";
 
 const Tickets = () => {
   return (
-    <div>Tickets</div>
+    <ComingSoon title="Tickets Management" />
   )
 }
 

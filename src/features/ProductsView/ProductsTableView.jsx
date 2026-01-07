@@ -16,7 +16,7 @@ const ProductsTableView = ( { products } ) => {
     const currentRows = products.slice(offset, offset + rowsPerPage);
   return (
     <>
-    <Table header={{ title: "Products list" }}>
+    <Table header={null}>
       <TableHead className="grid grid-cols-7 gap-4">
        {productsAllTableHeadRow.map((cell) => (
           <TableHeadCell key={cell}>{cell}</TableHeadCell>
