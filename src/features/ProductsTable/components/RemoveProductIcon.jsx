@@ -14,7 +14,7 @@ const RemoveProductIcon = ({ product, handler }) => {
 
   return <Modal
    title="Remove Product" 
-  onSubmit={() => handler(product.id)} 
+  onSubmit={() => handler(product._id)} 
   Trigger={<Trigger />}
   Footer={ModalFooterComponent} >
     

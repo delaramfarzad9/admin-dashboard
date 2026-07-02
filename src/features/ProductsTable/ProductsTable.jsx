@@ -12,17 +12,29 @@ import { productsTableHeadRow, products } from "../../data/products";
 import RemoveProductIcon from "./components/RemoveProductIcon";
 import ChangeVisibilityIcon from "./components/ChangeVisibilityIcon";
 import EditProducttIcon from "./components/EditProducttIcon";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import ReactPaginate from "react-paginate";
 
 const ProductsTable = () => {
-  const [lastProducts, setLastProducts] = useState([...products]);
+  const [lastProducts, setLastProducts] = useState([]);
   const [lastDeleted, setLastDeleted] = useState(null);
   const [undoTime, setUndoTime] = useState(100); // percentage
   const [currentPage, setCurrentPage] = useState(0);
   const rowsPerPage = 5; // how many products per page
   const offset = currentPage * rowsPerPage;
   const currentRows = lastProducts.slice(offset, offset + rowsPerPage);
+useEffect(() => {
+  const fetchProducts = async () => {
+    const res = await fetch("https://react-js-cms.iran.liara.run/api/products");
+    console.log("status:", res.status);
+    const data = await res.json();
+    console.log("data from API:", data);
+    if (res.status === 200) {
+      setLastProducts(data); // we'll adjust this after we see the log
+    }
+  };
+  fetchProducts();
+}, []);
 
   const Buttons = () => {
     return (
@@ -35,13 +47,26 @@ const ProductsTable = () => {
       </Link>
     );
   };
-  const removeProduct = (id) => {
-    const productToDelete = lastProducts.find((p) => p.id === id);
-
+  const removeProduct = async(id) => {
+    const productToDelete = lastProducts.find((p) => p._id === id);
+if (!productToDelete) return;
     setLastDeleted(productToDelete); // store for undo
 
-    const newProducts = lastProducts.filter((p) => p.id !== id);
+    const newProducts = lastProducts.filter((p) => p._id !== id);
     setLastProducts(newProducts);
+  const res = await fetch(`https://react-js-cms.iran.liara.run/api/products/${id}`, {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+console.log("delete status:", res.status);
+console.log("ID received by removeProduct:", id); 
+console.log("Products list:", lastProducts);
+console.log("ID received:", id);
+console.log("Products before delete:", lastProducts);
+console.log("Found product:", lastProducts.find(p => p._id === id));
+
 
     // Reset progress bar
     setUndoTime(100);
@@ -64,18 +89,18 @@ const ProductsTable = () => {
   //Undo delete: add the deleted product back, sort by ID to restore original order
   const undoDelete = () => {
     if (!lastDeleted) return; //If there’s nothing to undo, do nothing and exit.
-
+// Since _id is a string (MongoDB ObjectId), you must sort using localeCompare:
     setLastProducts((prev) =>
-      [...prev, lastDeleted].sort((a, b) => a.id - b.id)
+      [...prev, lastDeleted].sort((a, b) => a._id.localeCompare(b._id))
     );
 
     setLastDeleted(null);
   };
   const changeProductVisibility = (id) => {
-    const newProducts = lastProducts.map((product) => {
-      return product.id === id
-        ? { ...product, isPublished: !product.isPublished }
-        : { ...product };
+    const newProducts = lastProducts.map((lastProducts) => {
+      return lastProducts._id === id
+        ? { ...lastProducts, isPublished: !lastProducts.isPublished }
+        : { ...lastProducts };
     });
     setLastProducts(newProducts);
   };
@@ -90,31 +115,31 @@ const ProductsTable = () => {
         </TableHead>
 
         <TableBody>
-          {currentRows.map((product) => (
-            <TableRow key={product.id}>
-              <TableCell>{String(product.id).slice(0, 8)}...</TableCell>
-              <TableCell>{product.title}</TableCell>
+          {currentRows.map((lastProducts) => (
+            <TableRow key={lastProducts._id}>
+              <TableCell>{String(lastProducts._id).slice(0, 8)}...</TableCell>
+              <TableCell>{lastProducts.title}</TableCell>
               <TableCell>
                 <p
                   className={clsx(
-                    product.isPublished ? "success-badge" : "danger-badge",
+                    lastProducts.isPublished ? "success-badge" : "danger-badge",
                     "badge"
                   )}
                 >
-                  {product.isPublished ? "Public" : "Private"}
+                  {lastProducts.isPublished ? "Public" : "Private"}
                 </p>
               </TableCell>
               <TableCell>
-                $<span>{product.price.toLocaleString()}</span>
+                $<span>{lastProducts.price.toLocaleString()}</span>
               </TableCell>
               <TableCell>
                 <div className="flex items-center gap-2">
                   <RemoveProductIcon
-                    product={product}
+                    product={lastProducts}
                     handler={removeProduct}
                   />
                   <ChangeVisibilityIcon
-                    product={product}
+                    product={lastProducts}
                     handler={changeProductVisibility}
                   />
                   <EditProducttIcon />

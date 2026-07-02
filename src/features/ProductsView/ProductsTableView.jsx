@@ -25,8 +25,8 @@ const ProductsTableView = ( { products } ) => {
 
       <TableBody>
          {currentRows.map((product) => (
-          <TableRow key={product.id} className="grid grid-cols-7 gap-4 items-center ">
-            <TableCell >{String(product.id).slice(0, 8)}...</TableCell>
+          <TableRow key={product._id} className="grid grid-cols-7 gap-4 items-center ">
+            <TableCell >{String(product._id).slice(0, 8)}...</TableCell>
             <TableCell >{product.title}</TableCell>
             <TableCell className="-ml-2">
               <img
@@ -44,7 +44,7 @@ const ProductsTableView = ( { products } ) => {
               {product.isPublished ? "public" : "private"}
             </TableCell>
 
-            <TableCell>${product.price.toLocaleString()}</TableCell>
+            <TableCell>${Number(product.price || 0).toLocaleString()}</TableCell>
             <TableCell className="ml-5" >{product.entity}</TableCell>
 
             <TableCell>setting</TableCell>

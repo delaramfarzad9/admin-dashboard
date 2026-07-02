@@ -1,21 +1,22 @@
 import { CiGrid41, CiViewTable } from "react-icons/ci";
 import SectionTitle from "../../Components/common/SectionsTitle";
-import { useState } from "react";
-import { products } from "./../../data/products";
+import { useState,useEffect } from "react";
+
 import ProductTableView from "../../features/ProductsView/ProductsTableView";
 import ProductsGridView from "../../features/ProductsView/ProductsGridView";
 import AddProductFields from "../../features/ProductsTable/components/AddProductFields";
 import Modal from "../../Components/common/Modal";
 import ModalFooter from "../../Components/common/ModalFooter";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import useTitle from "../../hooks/useTitle";
 
 
 const Products = () => {
-
+useTitle("Products");
   const [layoutType, setLayoutType] = useLocalStorage("layout","TABLE"); // or GRID
-    const [allProducts, setAllProducts] = useState([...products]);
+    const [allProducts, setAllProducts] = useState([]);
     const [newProduct, setNewProduct] = useState({
-    id: crypto.randomUUID(),
+   
     title: "",
     description: "",
     price: "",
@@ -23,6 +24,7 @@ const Products = () => {
     isPublished: false,
     entity: "",
   });
+  
 
 
   const toggleLayout = () => {
@@ -31,23 +33,75 @@ const Products = () => {
     
 
   };
+useEffect(() => {
+    const fetchProducts = async () => {
+      const res =await fetch("https://react-js-cms.iran.liara.run/api/products");
+      console.log("status:",res.status);
+      const data=await res.json();
+      console.log("data from API:",data); 
+      if(res.status===200){
+        setAllProducts(data);
+    }
+    
+  }
+  fetchProducts();
+}, []);
 
-  const createNewProduct = () => {
-   const productToAdd = { ...newProduct, id: crypto.randomUUID() };
-    setAllProducts([productToAdd, ...allProducts]);
-     setNewProduct({
-      id: crypto.randomUUID(),
+
+  const createNewProduct = async() => {
+  try {
+    // Create a properly formatted product object
+    const productToSend = {
+      ...newProduct,
+      price: Number(newProduct.price), // Convert string to number
+      // Make sure entity is included
+    };
+    
+    console.log("Sending product:", productToSend);
+    
+    const res = await fetch("https://react-js-cms.iran.liara.run/api/products", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(productToSend), 
+    });
+    
+    const createdProduct = await res.json();
+    console.log("Full response from API:", createdProduct);
+    
+    // Check if response has nested data structure
+    const actualProduct = createdProduct.data || createdProduct;
+    
+    // Debug: Log all properties
+    console.log("Product fields:");
+    for (const key in actualProduct) {
+      console.log(`${key}:`, actualProduct[key], `(type: ${typeof actualProduct[key]})`);
+    }
+    
+    // Add the new product to UI
+    setAllProducts(prev => [actualProduct, ...prev]);
+    
+    // Reset form properly
+    setNewProduct({
       title: "",
       description: "",
-      price: "",
-      img: "/images/product-img.png",
+      price: "", // Keep as string for form input
+      img: "src/assets/images/Set-coffee_1.png",
       isPublished: false,
-      entity: "",
+      entity: "", // Make sure this matches your form field name
     });
-  };
-
+    
+    return true; // Important for modal close
+    
+  } catch(error) {
+    console.error("Error creating product:", error);
+    return false; // Keep modal open on error
+  }
+};
   const ModalFooterComponent = (props) => (
-    <ModalFooter {...props} btnTask1="Cancel" btnTask2="Add" className="bg-chocolate hover:bg-[#D4AF37]/80" />
+    <ModalFooter {...props} btnTask1="Cancel" btnTask2="Add" className="bg-chocolate hover:bg-[#D4AF37]/80"  onSubmit={async () => {
+      const success = await createNewProduct();
+      return success; // Return true to close modal, false to keep open
+    }} />
   );
   const tooltipText = layoutType === "TABLE" ? "Switch to Grid View" : "Switch to Table View";
 

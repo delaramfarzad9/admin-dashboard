@@ -9,7 +9,11 @@ const AddProductFields = ({ newProduct, onChange }) => {
 const handleChange = (key, value) => {
     const product = {
       ...newProduct,
-      [key]: key === "price" ? Number(value) : value,
+      [key]:
+  key === "price" || key === "entity"
+    ? value === "" ? "" : Number(value)
+    : value,
+
     };
 
     onChange(product);

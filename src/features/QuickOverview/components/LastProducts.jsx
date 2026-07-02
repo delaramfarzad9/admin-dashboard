@@ -5,10 +5,10 @@ import ProductCard from "./ProductCard";
 
 const LastProducts = () => {
   return (
-    <div className="col-span-3">
+    <div className="col-span-full xl:col-span-3">
       <SectionTitle title="Latest Products" />
 
-      <div className="space-y-3 mt-5">
+      <div className="mt-4 space-y-3 sm:mt-5">
         {products.slice(-3).map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}

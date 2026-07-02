@@ -6,9 +6,11 @@ import Summaries from "../../features/Summaries/Summaries";
 import DetailsCharts from "../../features/detailsCharts/DetailsCharts";
 import ProductsTable from "../../features/ProductsTable/ProductsTable";
 import QuickOverview from "../../features/QuickOverview/QuickOverview";
+import useTitle from "../../hooks/useTitle";
 
 const Home = () => {
   const navigate = useNavigate();
+  useTitle("Home");
 
   return (
     <>

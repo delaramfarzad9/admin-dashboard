@@ -5,10 +5,10 @@ import UserCard from "./UserCard";
 
 const LastUsers = () => {
   return (
-    <div className="col-span-2  max-h-max">
+    <div className="col-span-full xl:col-span-2 max-h-max">
       <SectionTitle title="Latest Users" />
 
-      <div className="space-y-5 mt-5">
+      <div className="mt-4 space-y-4 sm:mt-5 sm:space-y-5">
         {users.slice(-4).map((user) => (
           <UserCard key={user.id} {...user} />
         ))}
