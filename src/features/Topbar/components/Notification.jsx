@@ -1,12 +1,16 @@
-import React from 'react'
-import { BiBell } from 'react-icons/bi'
+import React from "react";
+import { BiBell } from "react-icons/bi";
 
 const Notification = () => {
   return (
-    <button className="flex size-10 border border-amber-900/50 rounded-full items-center justify-center cursor-pointer text-amber-900 hover:text-amber-600 hover:bg-amber-500/5 duration-150 hover:border-amber-600">
+    <button
+      aria-label="Notifications"
+      className="relative flex size-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 cursor-pointer transition-colors duration-150 hover:bg-gray-100 hover:text-chocolate"
+    >
       <BiBell className="text-[21px]" />
+      <span className="absolute top-2 right-2.5 size-2 rounded-full bg-red-500 ring-2 ring-white" />
     </button>
-  )
-}
+  );
+};
 
-export default Notification
+export default Notification;

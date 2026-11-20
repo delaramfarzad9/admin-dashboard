@@ -1,16 +1,64 @@
-# React + Vite
+# Admin Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive admin dashboard built with React, Vite, and Tailwind CSS. It includes an overview page with summary cards and charts, and a product management page with table and grid views.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Overview with summary cards, charts, and quick-look lists of recent products and users
+- Product management: table and grid views, search, filtering, pagination, add, edit, remove, and visibility toggle
+- Sidebar navigation and topbar with search, notifications, and profile
+- Client-side routing with a shared dashboard layout
+- Local storage persistence via custom hooks
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React 19](https://react.dev/)
+- [Vite](https://vite.dev/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [React Router 7](https://reactrouter.com/)
+- [Recharts](https://recharts.org/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [React Paginate](https://github.com/AdeleD/react-paginate)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Prerequisites:** Node.js 18+ and npm.
+
+```bash
+npm install
+npm run dev
+```
+
+The app runs at `http://localhost:5173` by default.
+
+## Scripts
+
+| Command           | Description                  |
+| ----------------- | ---------------------------- |
+| `npm run dev`     | Start the development server |
+| `npm run build`   | Create a production build    |
+| `npm run preview` | Preview the production build |
+| `npm run lint`    | Run ESLint                   |
+
+## Project Structure
+
+```
+src/
+├── Components/   # Shared UI (layouts, modal, table)
+├── Pages/        # Route pages (Home, Products, Tickets, Users, Comments)
+├── features/     # Feature modules (Sidebar, Topbar, Summaries, ProductsTable, ...)
+├── hooks/        # Custom hooks (useLocalStorage, useTitle)
+├── data/         # Static data and constants
+├── utils/        # Helper functions
+└── routes.jsx    # Router configuration
+```
+
+## Routes
+
+| Path        | Page     | Status      |
+| ----------- | -------- | ----------- |
+| `/`         | Home     | Available   |
+| `/products` | Products | Available   |
+| `/tickets`  | Tickets  | Coming soon |
+| `/users`    | Users    | Coming soon |
+| `/comments` | Comments | Coming soon |

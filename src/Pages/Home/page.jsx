@@ -14,19 +14,16 @@ const Home = () => {
 
   return (
     <>
-      <div className="flex flex-col mx-5">
+      <div className="flex flex-col gap-8">
         <SectionsTitle
           title="Dashboard"
           className="font-black!"
-          Buttons={<CTAButton onClick={() => navigate("/products")}
-           />}
+          Buttons={<CTAButton onClick={() => navigate("/products")} />}
         />
         <Summaries />
-        <div className="">
-          <DetailsCharts />
-          <ProductsTable />
-         <QuickOverview />
-        </div>
+        <DetailsCharts />
+        <ProductsTable />
+        <QuickOverview />
       </div>
     </>
   );

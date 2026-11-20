@@ -1,16 +1,21 @@
-import React from 'react'
-import Logo from './Logo'
-import { Link } from 'react-router'
+import React from "react";
+import Logo from "./Logo";
+import { Link } from "react-router";
 
 const SidebarHeader = () => {
   return (
     <div>
-        <Link className=' flex flex-row gap-1 justify-baseline items-center border-b-2 border-amber-300/50 h-16 ' to='/'>
+      <Link
+        className="flex flex-row gap-1 items-center h-16 border-b border-gray-200"
+        to="/"
+      >
         <Logo />
-        <span className='text-lg text-amber-900  font-extrabold'> Panel</span>
-        </Link>
+        <span className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
+          Panel
+        </span>
+      </Link>
     </div>
-  )
-}
+  );
+};
 
-export default SidebarHeader
+export default SidebarHeader;

@@ -1,140 +1,164 @@
 /* source-sans-3-200 - latin */
 @font-face {
-  font-display: swap; 
-  font-family: 'Source Sans 3';
+  font-display: swap;
+  font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 200;
-  src: url('/public/fonts/source-sans-3-v19-latin-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-200.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* source-sans-3-200italic - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-style: italic;
   font-weight: 200;
-  src: url('/public/fonts/source-sans-3-v19-latin-200italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-200italic.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* source-sans-3-300 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 300;
-  src: url('/public/fonts/source-sans-3-v19-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-300.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* source-sans-3-300italic - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-style: italic;
   font-weight: 300;
-  src: url('/public/fonts/source-sans-3-v19-latin-300italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-300italic.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* source-sans-3-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 400;
-  src: url('/public/fonts/source-sans-3-v19-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-regular.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* source-sans-3-italic - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-style: italic;
   font-weight: 400;
-  src: url('/public/fonts/source-sans-3-v19-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* source-sans-3-500 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 500;
-  src: url('/public/fonts/source-sans-3-v19-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* source-sans-3-500italic - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-style: italic;
   font-weight: 500;
-  src: url('/public/fonts/source-sans-3-v19-latin-500italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-500italic.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* source-sans-3-600 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 600;
-  src: url('/public/fonts/source-sans-3-v19-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* source-sans-3-600italic - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-style: italic;
   font-weight: 600;
-  src: url('/public/fonts/source-sans-3-v19-latin-600italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-600italic.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* source-sans-3-700 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 700;
-  src: url('/public/fonts/source-sans-3-v19-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* source-sans-3-800 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 800;
-  src: url('/public/fonts/source-sans-3-v19-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-800.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* source-sans-3-900 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 900;
-  src: url('/public/fonts/source-sans-3-v19-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/public/fonts/source-sans-3-v19-latin-900.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* pacifico-regular - latin */
 @font-face {
-  font-display: swap; 
-  font-family: 'Pacifico';
+  font-display: swap;
+  font-family: "Pacifico";
   font-style: normal;
   font-weight: 400;
-  src: url("/public/fonts/pacifico-v23-latin-regular.woff2") format('woff2'); 
+  src: url("/public/fonts/pacifico-v23-latin-regular.woff2") format("woff2");
 }
 @import "tailwindcss";
-@theme{
-    --font-pacifico:Pacifico ,"sans-serif"; 
-    --font-sourcesans: Source Sans 3, "sans-serif";
-     --color-chocolate: #7B3F00;
-   
-   
+@theme {
+  --font-pacifico: Pacifico, "sans-serif";
+  --font-sourcesans: Source Sans 3, "sans-serif";
+  --color-chocolate: #7b3f00;
 }
-body { @apply bg-gray-100 text-gray-800 font-sourcesans};
+body {
+  @apply bg-gray-100 text-gray-800 font-sourcesans;
+}
 
- .bg-overlays {
-        background-image: linear-gradient(to right, rgba(235, 232, 229, 0.8) 1px, transparent 1px), linear-gradient(to bottom, rgba(229,231,235,0.8) 1px, transparent 1px), radial-gradient(circle 500px at 90% 30%, oklch(83.7% 0.128 66.29), transparent), radial-gradient(circle 600px at 20% 80%, oklch(83.7% 0.128 66.29), transparent); 
-        background-size: 48px 48px, 48px 48px, 100% 100%, 100% 100%;
-  }
-  .badge {
-  @apply text-xs flex items-center justify-center gap-1 px-1 py-0.5 rounded-md border max-w-max cursor-pointer select-none hover:opacity-80 max-h-max;
+.bg-overlays {
+  background-color: #faf6f1;
+  background-image:
+    linear-gradient(to right, rgba(123, 63, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(123, 63, 0, 0.04) 1px, transparent 1px),
+    radial-gradient(
+      circle 600px at 90% 10%,
+      rgba(123, 63, 0, 0.14),
+      transparent
+    ),
+    radial-gradient(
+      circle 700px at 10% 90%,
+      rgba(210, 150, 80, 0.2),
+      transparent
+    ),
+    linear-gradient(180deg, #fdfaf6 0%, #f5ebe0 100%);
+  background-size:
+    48px 48px,
+    48px 48px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+}
+.badge {
+  @apply text-xs font-medium flex items-center justify-center gap-1 px-2.5 py-1 rounded-full border border-transparent max-w-max select-none max-h-max;
 
   &.success-badge {
-    @apply text-green-500 bg-green-500/10;
+    @apply text-green-700 bg-green-500/10 border-green-500/20;
   }
 
   &.danger-badge {
-    @apply bg-red-500/10 text-red-500;
+    @apply bg-red-500/10 text-red-600 border-red-500/20;
   }
-};
+}
 @keyframes fadeIn {
   from {
     opacity: 0;

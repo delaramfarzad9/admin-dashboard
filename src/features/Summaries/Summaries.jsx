@@ -1,6 +1,6 @@
-import React from 'react'
-import SummaryCard from './components/SummaryCard'
-import {generateSummaries} from '../../utils/home'
+import React from "react";
+import SummaryCard from "./components/SummaryCard";
+import { generateSummaries } from "../../utils/home";
 
 const Summaries = () => {
   const summaries = generateSummaries({
@@ -11,12 +11,12 @@ const Summaries = () => {
   });
 
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 '>
-{summaries.map((summary)=>(
-  <SummaryCard key={summary.id}{...summary}/>
-))}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {summaries.map((summary) => (
+        <SummaryCard key={summary.id} {...summary} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Summaries
+export default Summaries;

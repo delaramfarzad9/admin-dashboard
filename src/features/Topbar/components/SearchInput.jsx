@@ -1,27 +1,22 @@
-import React from 'react'
-import { MdKeyboardCommandKey } from 'react-icons/md'
-import { HiOutlineSearch } from 'react-icons/hi'
+import React from "react";
+import { MdKeyboardCommandKey } from "react-icons/md";
+import { HiOutlineSearch } from "react-icons/hi";
 
 const SearchInput = () => {
   return (
-    <div className="relative h-10 border border-amber-800/50 rounded-lg  w-[288px] flex items-center justify-center duration-150 focus-within:ring-4 focus-within:ring-amber-900/10 focus-within:border-amber-700/20! text-sm">
-        <HiOutlineSearch className="absolute left-3 text-gray-400 size-5 pointer-events-none" />
-             <div className="absolute right-2 flex  items-center justify-center text-center  bg-gray-200 p-1  rounded-sm select-none   text-gray-400">
-        <span>
-          <MdKeyboardCommandKey className='size-5' />
-        </span>
-        <span>
-          <kbd className='text-sm'>K</kbd>
-        </span>
-      </div>
-           <input
+    <div className="relative h-10 w-full max-w-xs sm:w-72 flex items-center text-sm rounded-lg border border-gray-200 bg-gray-50 transition focus-within:bg-white focus-within:border-chocolate/40 focus-within:ring-4 focus-within:ring-chocolate/10">
+      <HiOutlineSearch className="absolute left-3 text-gray-400 size-5 pointer-events-none" />
+      <input
         type="text"
-        className="absolute size-full focus-within:outline-none placeholder:text-sm pr-4 pl-10 text-amber-700"
-        placeholder="search..."
+        className="size-full bg-transparent outline-none pl-10 pr-4 sm:pr-16 text-gray-800 placeholder:text-gray-400"
+        placeholder="Search..."
       />
-
+      <div className="absolute right-2 hidden sm:flex items-center px-1.5 py-0.5 rounded-md border border-gray-200 bg-white text-gray-400 select-none pointer-events-none">
+        <MdKeyboardCommandKey className="size-4" />
+        <kbd className="text-xs font-sans">K</kbd>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default SearchInput
+export default SearchInput;

@@ -6,80 +6,74 @@ import TableRow from "../../Components/common/Table/elements/TableRow";
 import TableCell from "../../Components/common/Table/elements/TableCell";
 import { productsAllTableHeadRow } from "../../data/products";
 import clsx from "clsx";
-import ReactPaginate from "react-paginate";
+import Pagination from "../../Components/common/Pagination";
 import { useState } from "react";
 
-const ProductsTableView = ( { products } ) => {
+const ProductsTableView = ({ products }) => {
   const [currentPage, setCurrentPage] = useState(0);
-    const rowsPerPage = 5; // how many products per page
-    const offset = currentPage * rowsPerPage;
-    const currentRows = products.slice(offset, offset + rowsPerPage);
+  const rowsPerPage = 5; // how many products per page
+  const offset = currentPage * rowsPerPage;
+  const currentRows = products.slice(offset, offset + rowsPerPage);
   return (
     <>
-    <Table header={null}>
-      <TableHead className="grid grid-cols-7 gap-4">
-       {productsAllTableHeadRow.map((cell) => (
-          <TableHeadCell key={cell}>{cell}</TableHeadCell>
-        ))}
-      </TableHead>
+      <Table header={null}>
+        <TableHead className="grid grid-cols-7 gap-4">
+          {productsAllTableHeadRow.map((cell) => (
+            <TableHeadCell key={cell}>{cell}</TableHeadCell>
+          ))}
+        </TableHead>
 
-      <TableBody>
-         {currentRows.map((product) => (
-          <TableRow key={product._id} className="grid grid-cols-7 gap-4 items-center ">
-            <TableCell >{String(product._id).slice(0, 8)}...</TableCell>
-            <TableCell >{product.title}</TableCell>
-            <TableCell className="-ml-2">
-              <img
-                src={product.img}
-                alt={product.title}
-                className="w-20 h-20 rounded-md border border-gray-100"
-              />
-            </TableCell>
-            <TableCell
-              className={clsx(
-                product.isPublished ? "success-badge" : "danger-badge",
-                "badge ml-2"
-              )}
+        <TableBody>
+          {currentRows.map((product) => (
+            <TableRow
+              key={product._id}
+              className="grid grid-cols-7 gap-4 items-center "
             >
-              {product.isPublished ? "public" : "private"}
-            </TableCell>
+              <TableCell>
+                <span className="font-mono text-xs text-gray-400">
+                  {String(product._id).slice(0, 8)}...
+                </span>
+              </TableCell>
+              <TableCell>
+                <span className="font-semibold text-gray-900">
+                  {product.title}
+                </span>
+              </TableCell>
+              <TableCell>
+                <img
+                  src={product.img}
+                  alt={product.title}
+                  className="size-12 object-cover rounded-lg border border-gray-200"
+                />
+              </TableCell>
+              <TableCell
+                className={clsx(
+                  product.isPublished ? "success-badge" : "danger-badge",
+                  "badge",
+                )}
+              >
+                {product.isPublished ? "public" : "private"}
+              </TableCell>
 
-            <TableCell>${Number(product.price || 0).toLocaleString()}</TableCell>
-            <TableCell className="ml-5" >{product.entity}</TableCell>
+              <TableCell>
+                <span className="text-chocolate">$</span>
+                <span className="font-semibold text-gray-900">
+                  {Number(product.price || 0).toLocaleString()}
+                </span>
+              </TableCell>
+              <TableCell>{product.entity}</TableCell>
 
-            <TableCell>setting</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-<ReactPaginate
+              <TableCell className="text-gray-400">setting</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      <Pagination
         pageCount={Math.ceil(products.length / rowsPerPage)}
-        onPageChange={(event) => setCurrentPage(event.selected)}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={1}
-        // container
-        containerClassName="flex items-center gap-4 my-10 justify-center select-none font-semibold text-gray-800"
-        // page numbers
-        pageClassName=" border border-chocolate  rounded-full cursor-pointer hover:scale-105 hover:bg-[#D4AF37]/80 transition-all duration-200"
-        pageLinkClassName="block px-3 py-1 items-center justify-center w-full h-full"
-        // active page
-        activeClassName="bg-chocolate cursor-none! pointer-events-none! text-gray-100 border-chocolate"
-        // previous + next buttons
-        previousClassName="px-3 py-1 duration-200 hover:scale-105  cursor-pointer hover:text-lime-600 transition-all"
-        previousLinkClassName="block items-center justify-center w-full h-full"
-        nextClassName="px-3 py-1 duration-200 hover:scale-105 cursor-pointer hover:text-lime-600 transition-all"
-        nextLinkClassName="block items-center justify-center w-full h-full"
-        // disabled buttons (Prev on page 0, Next on last page)
-        disabledClassName="opacity-40 cursor-not-allowed pointer-events-none!"
-        // break (...)
-        breakClassName="px-3 py-1 text-gray-500"
-        previousLabel="Prev"
-        nextLabel="Next"
-        breakLabel="..."
+        onPageChange={setCurrentPage}
       />
-
     </>
-  )
+  );
 };
 
 export default ProductsTableView;

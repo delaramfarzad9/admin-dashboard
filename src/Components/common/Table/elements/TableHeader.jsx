@@ -1,14 +1,12 @@
-import React from 'react'
-import Filter from './Filter'
-import Search from './Search'
+import React from "react";
+import Filter from "./Filter";
+import Search from "./Search";
 
 const TableHeader = ({ header }) => {
-    const { Buttons } = header;
+  const { Buttons } = header;
   return (
-    <div className="flex items-center justify-between mb-4 h-20">
-      <h2 className='text-xl font-bold text-chocolate'>
-       {header.title}
-      </h2>
+    <div className="flex items-center justify-between px-5 h-16 border-b border-gray-200">
+      <h2 className="text-lg font-semibold text-gray-900">{header.title}</h2>
 
       {typeof Buttons === "function" ? (
         <div className="flex items-center gap-2">{<Buttons />}</div>
@@ -19,7 +17,7 @@ const TableHeader = ({ header }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default TableHeader
+export default TableHeader;
